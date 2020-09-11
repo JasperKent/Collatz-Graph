@@ -1,0 +1,35 @@
+﻿<Window x:Class="CollatzGraph.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CollatzGraph"
+        mc:Ignorable="d"
+        Title="Collatz Graph" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel  Grid.Row="0" Orientation="Horizontal">
+            <Label Content="From:" Margin="2,2,2,2"></Label>
+            <TextBox Text ="1" Name="fromBox" Width="75"  Margin="2,2,2,2" VerticalAlignment="Center"></TextBox>
+            <Label Content="To:" Margin="2,2,2,2"></Label>
+            <TextBox Text="2000" Name="toBox" Width="75"  Margin="2,2,2,2" VerticalAlignment="Center"></TextBox>
+            <RadioButton Content="Counts" GroupName="Mode" Margin="2,8,2,2" IsChecked="true" Checked="Counts_Checked"></RadioButton>
+            <RadioButton Content="Peaks" GroupName="Mode" Margin="2,8,2,2"  Checked="Peaks_Checked"></RadioButton>
+            <Label Content="Clip Y to " Margin="2,2,2,2"></Label>
+            <TextBox Text ="100" Name="clipBox" Width="75"  Margin="2,2,2,2" VerticalAlignment="Center"></TextBox>
+            <Label Content="%" Margin="2,2,2,2"></Label>
+            <Button Grid.Row="0" Content="Generate" Click="Generate_Click" Margin="2,2,2,2" Padding="5,0,5,0"/>
+        </StackPanel>
+        <Grid  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Canvas Grid.Column="0" Name="scale" Background="#EEEEEE" SizeChanged="Canvas_SizeChanged"></Canvas>
+            <Canvas Grid.Column="1" Name="canvas" Background="#DDDDDD" SizeChanged="Canvas_SizeChanged"></Canvas>
+        </Grid>
+    </Grid>
+</Window>
